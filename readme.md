@@ -50,7 +50,8 @@ Exemplo: input/cartao_maio.pdf
    Qual o nome do arquivo? (Não coloque o .pdf, somente o nome)
    ```
 
-   > Todos os arquivos de planilha serão gerados em `/Output`\n
+   > Todos os arquivos de planilha serão gerados em `/Output`
+   
    > Todos os Aquivos para geração de planilha deverão ser Colocados na pasta `/Input`
 
 ---
