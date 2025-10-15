@@ -31,12 +31,6 @@
    ```bash
    npm install
    ```
-.Coloque seus PDFs na pasta input/
- ```bash
-Exemplo: input/holerite_maio.pdf
-Exemplo: input/cartao_maio.pdf
-
-  ```
 3. Inicie o programa e siga as instruções:
    ```bash
    node src/main.js
@@ -48,6 +42,8 @@ Exemplo: input/cartao_maio.pdf
 5. Selecione o arquivo:
    ```bash
    Qual o nome do arquivo? (Não coloque o .pdf, somente o nome)
+   [Caso tenha escolhido a opção 1 "testeCartao"]
+   [Caso tenha escolhido a opção 2 "Exemplo-Holerite-01"]
    ```
 
    > Todos os arquivos de planilha serão gerados em `/Output`
