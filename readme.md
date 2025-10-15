@@ -1,75 +1,164 @@
-
 # 🧾 PDF Extractor para Holerites e Cartões de Ponto
-- Este projeto em Node.js extrai dados de PDFs de holerites e cartões de ponto, e gera automaticamente uma planilha Excel (.xlsx) com os resultados formatados.
 
-### Tecnologias
-- **Node.js "21^"**
-- **exceljs "4.4.0"**
-- **pdf-parse "2.3.11"**
-- 
+Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de ponto**, e gera automaticamente uma **planilha Excel (.xlsx)** com os resultados formatados.
+
 ---
-### ⚙️ Pré-requisitos
-- Node.js versão 18+
-- npm (instalado junto com o Node)
-- PDF com texto legível (não apenas imagem — PDFs digitalizados sem OCR não funcionarão bem)
+
+## 💻 Tecnologias
+
+- **Node.js** `^21`
+- **exceljs** `^4.4.0`
+- **pdf-parse** `^2.3.11`
+
+---
+
+## ⚙️ Pré-requisitos
+
+- **Node.js** versão **18+**
+- **npm** (instalado junto com o Node)
+- **PDF com texto legível** — PDFs digitalizados sem OCR não funcionarão bem
 
 ---
 
 ## 🚀 Instalação
 
-. Certifique-se de que o package.json contenha ao menos:
-```bash
-{  "dependencies": {    "exceljs": "^4.4.0",    "pdf-parse": "^1.1.1"  }}
- ```
+1. **Verifique o `package.json`** (deve conter algo assim):
 
-1. Clone Este repositório:
-   ```bash
-   git clone https://github.com/Dantedevil10/quickFiller-PdfExtractor.git
+   ```json
+   {
+     "dependencies": {
+       "exceljs": "^4.4.0",
+       "pdf-parse": "^2.3.11"
+     }
+   }
    ```
 
-2. Instale as dependências:
+2. **Clone este repositório:**
+
+   ```bash
+   git clone https://github.com/Dantedevil10/quickFiller-PdfExtractor.git
+   cd quickFiller-PdfExtractor
+   ```
+
+3. **Instale as dependências:**
+
    ```bash
    npm install
    ```
-3. Inicie o programa e siga as instruções:
+
+4. **Inicie o programa e siga as instruções:**
+
    ```bash
    node src/main.js
    ```
-4. Selecione qual Opção desejar no terminal:
-   ```bash
-   Deseja Abrir um Pdf De Cartão ou Holerite ? 1 - Cartão 2 - Holerite
+
+---
+
+## 🧭 Uso
+
+1. Escolha a opção desejada no terminal:
+
    ```
-5. Selecione o arquivo:
-   ```bash
+   Deseja Abrir um Pdf De Cartão ou Holerite ?
+   1 - Cartão
+   2 - Holerite
+   ```
+
+2. Escolha o arquivo desejado:
+
+   ```
    Qual o nome do arquivo? (Não coloque o .pdf, somente o nome)
-   [Caso tenha escolhido a opção 1 "testeCartao"]
-   [Caso tenha escolhido a opção 2 "Exemplo-Holerite-01"]
    ```
 
-   > Todos os arquivos de planilha serão gerados em `/Output`
-   
-   > Todos os Aquivos para geração de planilha deverão ser Colocados na pasta `/Input`
+   Exemplos:
+
+   - Para cartão: `testeCartao`
+   - Para holerite: `Exemplo-Holerite-01`
+
+3. O programa processará o arquivo e gerará uma planilha Excel automaticamente.
 
 ---
+
+## 📂 Estrutura de Pastas
+
+```
+📦 quickFiller-PdfExtractor
+├── input/        # PDFs de entrada
+│   ├── testeCartao.pdf
+│   └── Exemplo-Holerite-01.pdf
+│
+├── output/       # Planilhas geradas
+│   ├── resultado_cartao_ponto.xlsx
+│   └── resultado_holerite.xlsx
+│
+├── models/       # Modelos base de planilhas (.xlsx)
+│
+├── src/
+│   ├── main.js
+│   ├── utils/pdfUtils.js
+│   ├── services/excelService.js
+│   └── extractors/
+│       ├── cartaoPontoExtractor.js
+│       └── holeriteExtractor.js
+```
+
+---
+
 ## 📊 Saída Gerada
-Após o processamento, o sistema criará automaticamente a planilha Excel correspondente em output/:
+
+Após o processamento, o sistema criará automaticamente a planilha correspondente em `output/`.
+
+| Tipo de PDF | Arquivo Gerado |
+|--------------|----------------|
+| Cartão de Ponto | `resultado_cartao_ponto.xlsx` |
+| Holerite | `resultado_holerite.xlsx` |
+
 ---
+
 ## 🧠 Funcionamento Interno
-- main.js → gerencia a execução, entrada do usuário e chamadas aos módulos.
-- pdfUtils.js → lê e converte o PDF em texto.
-- cartaoPontoExtractor.js → interpreta o texto e extrai os dados de ponto (mês, dia, entrada, saída, situação).
-- holeriteExtractor.js → extrai informações de holerite (mês, total de proventos, descontos e líquido).
-- excelService.js → insere os dados extraídos em uma planilha modelo (/models) e salva em /output.
 
-  ## Observações
-O projeto tolera diferentes formatações de PDF, mas o texto deve estar acessível (OCR ativo).
+- **`main.js`** → Gerencia a execução, entrada do usuário e chamadas aos módulos.  
+- **`pdfUtils.js`** → Lê e converte o PDF em texto.  
+- **`cartaoPontoExtractor.js`** → Extrai dados de ponto (mês, dia, entrada, saída, situação).  
+- **`holeriteExtractor.js`** → Extrai dados de holerite (mês, proventos, descontos e líquido).  
+- **`excelService.js`** → Preenche uma planilha modelo e salva no diretório `/output`.
 
+---
 
+## ⚠️ Observações
+
+- O projeto **tolera variações de layout e espaçamento** nos PDFs.  
+- O texto **precisa ser legível por OCR** (não apenas imagem).  
+- Mensagens de aviso indicarão se nada foi extraído:
+  ```
+  ⚠️ Nenhum bloco de holerite identificado. Verifique o layout ou OCR.
+  ⚠️ Nenhum 'Mês/Ano' encontrado. Verifique se o layout mudou.
+  ```
+
+---
 
 ## 📡 Teste
 
-Na Pasta `/Input` existem 1 Arquivo `testeCartao.pdf` e `Exemplo-Holerite-01.pdf` que podem ser usados para gerar uma planilha final em `/Output`
+Na pasta `/input` já existem arquivos de exemplo:
 
+- `testeCartao.pdf`
+- `Exemplo-Holerite-01.pdf`
+
+Execute o programa e confira os resultados gerados em `/output`.
 
 ---
+
+💡 **Dica:**  
+Se quiser, adicione este script no `package.json` para iniciar mais rápido:
+
+```json
+"scripts": {
+  "start": "node src/main.js"
+}
+```
+
+Assim, basta rodar:
+```bash
+npm start
+```
 
