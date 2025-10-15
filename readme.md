@@ -5,7 +5,7 @@ Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de po
 
 ### 📁 Estrutura do Projeto
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   📦 pdf-extractor  ├── input/                     # Pasta onde ficam os PDFs a serem processados  │   ├── exemplo_holerite.pdf  │   └── exemplo_cartao_ponto.pdf  │  ├── output/                    # Planilhas geradas são salvas aqui  │   └── resultado_holerite.xlsx  │  ├── models/                    # Modelos base de planilhas  │   ├── Exemplo-Cartao-Ponto-01.xlsx  │   └── Exemplo-Holerite-01.xlsx  │  ├── extractors/                # Extratores específicos de dados  │   ├── holeriteExtractor.js  │   └── cartaoPontoExtractor.js  │  ├── services/                  # Serviços auxiliares (geração de planilhas, etc.)  │   └── excelService.js  │  ├── utils/                     # Funções utilitárias  │   └── pdfUtils.js  │  ├── main.js                    # Arquivo principal (ponto de entrada)  └── package.json   `
+`   📦 pdf-extractor  ├── input/                     # Pasta onde ficam os PDFs a serem processados  │   ├── exemplo_holerite.pdf  │   └── exemplo_cartao_ponto.pdf  │  ├── output/                    # Planilhas geradas são salvas aqui  │   └── resultado_holerite.xlsx  │  ├── models/                    # Modelos base de planilhas  │   ├── Exemplo-Cartao-Ponto-01.xlsx  │   └── Exemplo-Holerite-01.xlsx  │  ├── extractors/                # Extratores específicos de dados  │   ├── holeriteExtractor.js  │   └── cartaoPontoExtractor.js  │  ├── services/                  # Serviços auxiliares (geração de planilhas, etc.)  │   └── excelService.js  │  ├── utils/                     # Funções utilitárias  │   └── pdfUtils.js  │  ├── main.js                    # Arquivo principal (ponto de entrada)  └── package.json   `
 
 ### ⚙️ Pré-requisitos
 
@@ -35,17 +35,17 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 No terminal, dentro da pasta do projeto:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   node main.js   `
+`   node main.js   `
 
 O programa exibirá um menu interativo:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   Deseja Abrir um Pdf De Cartão ou Holerite ?   1 - Cartão   2 - Holerite   `
+`   Deseja Abrir um Pdf De Cartão ou Holerite ?   1 - Cartão   2 - Holerite   `
 
 Depois, mostrará os arquivos encontrados na pasta input/, e pedirá o nome do arquivo (sem o .pdf).
 
 Exemplo:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   📄 Arquivos disponíveis na pasta /input:   - holerite_maio.pdf   - cartao_maio.pdf  Qual o nome do arquivo? (Não coloque o .pdf, somente o nome)  > holerite_maio   `
+`   📄 Arquivos disponíveis na pasta /input:   - holerite_maio.pdf   - cartao_maio.pdf  Qual o nome do arquivo? (Não coloque o .pdf, somente o nome)  > holerite_maio   `
 
 ### 📊 Saída Gerada
 
@@ -81,8 +81,8 @@ Mês/AnoDiaEntradaSaídaSituação05/20240109:0018:00Normal05/20240209:1518:05De
 
 Para rodar mais rápido:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm start   `
+`   npm start   `
 
 Adicione no package.json:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   "scripts": {    "start": "node main.js"  }   `
+`   "scripts": {    "start": "node main.js"  }   `
