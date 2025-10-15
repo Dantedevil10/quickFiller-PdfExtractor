@@ -5,7 +5,7 @@ Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de po
 
 ### 📁 Estrutura do Projeto
 
-`   📦 pdf-extractor  ├── input/                     # Pasta onde ficam os PDFs a serem processados  │   ├── exemplo_holerite.pdf  │   └── exemplo_cartao_ponto.pdf  │  ├── output/                    # Planilhas geradas são salvas aqui  │   └── resultado_holerite.xlsx  │  ├── models/                    # Modelos base de planilhas  │   ├── Exemplo-Cartao-Ponto-01.xlsx  │   └── Exemplo-Holerite-01.xlsx  │  ├── extractors/                # Extratores específicos de dados  │   ├── holeriteExtractor.js  │   └── cartaoPontoExtractor.js  │  ├── services/                  # Serviços auxiliares (geração de planilhas, etc.)  │   └── excelService.js  │  ├── utils/                     # Funções utilitárias  │   └── pdfUtils.js  │  ├── main.js                    # Arquivo principal (ponto de entrada)  └── package.json   `
+`   📦 pdf-extractor  ├── input/ # Pasta onde ficam os PDFs a serem processados  │   ├── exemplo_holerite.pdf  │   └── exemplo_cartao_ponto.pdf  │  ├── output/                    # Planilhas geradas são salvas aqui  │   └── resultado_holerite.xlsx  │  ├── models/                    # Modelos base de planilhas  │   ├── Exemplo-Cartao-Ponto-01.xlsx  │   └── Exemplo-Holerite-01.xlsx  │  ├── extractors/                # Extratores específicos de dados  │   ├── holeriteExtractor.js  │   └── cartaoPontoExtractor.js  │  ├── services/                  # Serviços auxiliares (geração de planilhas, etc.)  │   └── excelService.js  │  ├── utils/                     # Funções utilitárias  │   └── pdfUtils.js  │  ├── main.js                    # Arquivo principal (ponto de entrada)  └── package.json   `
 
 ### ⚙️ Pré-requisitos
 
@@ -18,17 +18,15 @@ Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de po
 
 ### 🚀 Instalação
 
-1.  git clone https://github.com/seuusuario/pdf-extractor.gitcd pdf-extractor
+1.  git clone [https://github.com/seuusuario/pdf-extractor.gitcd pdf-extractor](https://github.com/Dantedevil10/quickFiller-PdfExtractor.git)
     
-2.  npm installCertifique-se de que o package.json contenha ao menos:{ "dependencies": { "exceljs": "^4.4.0", "pdf-parse": "^1.1.1" }}
+2.   `npm install` Certifique-se de que o package.json contenha ao menos: `{ "dependencies": { "exceljs": "^4.4.0", "pdf-parse": "^1.1.1" }}`
     
-3.  mkdir input output models
+3.  **Coloque seus PDFs na pasta input/**
     
-4.  **Coloque seus PDFs na pasta input/**
-    
-    *   Exemplo: input/holerite\_maio.pdf
+    *   Exemplo: input/maio.pdf
         
-    *   Exemplo: input/cartao\_maio.pdf
+    *   Exemplo: input/cartao_maio.pdf
         
 
 ### ▶️ Como Executar
@@ -50,8 +48,6 @@ Exemplo:
 ### 📊 Saída Gerada
 
 Após o processamento, o sistema criará automaticamente a planilha Excel correspondente em output/:
-
-Tipo de PDFArquivo geradoCartão de Pontooutput/resultado\_cartao\_ponto.xlsxHoleriteoutput/resultado\_holerite.xlsx
 
 ### 🧠 Funcionamento Interno
 
