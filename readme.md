@@ -8,8 +8,7 @@
 - **pdf-parse "2.3.11"**
 - 
 ---
-
-###⚙️ Pré-requisitos
+### ⚙️ Pré-requisitos
 - Node.js versão 18+
 - npm (instalado junto com o Node)
 - PDF com texto legível (não apenas imagem — PDFs digitalizados sem OCR não funcionarão bem)
