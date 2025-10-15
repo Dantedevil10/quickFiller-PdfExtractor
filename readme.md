@@ -5,7 +5,10 @@
 ### Tecnologias
 - **Node.js "21^"**
 - **exceljs "4.4.0"**
-- **pdf-parse "2.3.11"** 
+- **pdf-parse "2.3.11"**
+- 
+---
+
 ###⚙️ Pré-requisitos
 - Node.js versão 18+
 - npm (instalado junto com o Node)
