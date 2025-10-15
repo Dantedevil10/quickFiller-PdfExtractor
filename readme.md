@@ -55,10 +55,10 @@ Exemplo: input/cartao_maio.pdf
    > Todos os Aquivos para geração de planilha deverão ser Colocados na pasta `/Input`
 
 ---
-##📊 Saída Gerada
+## 📊 Saída Gerada
 Após o processamento, o sistema criará automaticamente a planilha Excel correspondente em output/:
 ---
-##🧠 Funcionamento Interno
+## 🧠 Funcionamento Interno
 - main.js → gerencia a execução, entrada do usuário e chamadas aos módulos.
 - pdfUtils.js → lê e converte o PDF em texto.
 - cartaoPontoExtractor.js → interpreta o texto e extrai os dados de ponto (mês, dia, entrada, saída, situação).
