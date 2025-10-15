@@ -1,84 +1,53 @@
-🧾 PDF Extractor para Holerites e Cartões de Ponto
---------------------------------------------------
 
-Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de ponto**, e gera automaticamente uma **planilha Excel (.xlsx)** com os resultados formatados.
+# Sistema de Extração de dados de Pdf
 
-### 📁 Estrutura do Projeto
+### Tecnologias
+- **Node.js "21^"**
+- **exceljs "4.4.0"**
+- **pdf-parse "2.3.11"** 
 
-`   📦 pdf-extractor  ├── input/ # Pasta onde ficam os PDFs a serem processados  │   ├── exemplo_holerite.pdf  │   └── exemplo_cartao_ponto.pdf  │  ├── output/                    # Planilhas geradas são salvas aqui  │   └── resultado_holerite.xlsx  │  ├── models/                    # Modelos base de planilhas  │   ├── Exemplo-Cartao-Ponto-01.xlsx  │   └── Exemplo-Holerite-01.xlsx  │  ├── extractors/                # Extratores específicos de dados  │   ├── holeriteExtractor.js  │   └── cartaoPontoExtractor.js  │  ├── services/                  # Serviços auxiliares (geração de planilhas, etc.)  │   └── excelService.js  │  ├── utils/                     # Funções utilitárias  │   └── pdfUtils.js  │  ├── main.js                    # Arquivo principal (ponto de entrada)  └── package.json   `
 
-### ⚙️ Pré-requisitos
+---
 
-*   **Node.js** versão **18+**
-    
-*   **npm** (instalado junto com o Node)
-    
-*   PDF com texto legível (não apenas imagem — PDFs digitalizados sem OCR não funcionarão bem)
-    
+## ▶️ Como Rodar o Projeto
 
-### 🚀 Instalação
+1. Clone Este repositório:
+   ```bash
+   git clone https://github.com/Dantedevil10/quickFiller-PdfExtractor.git
+   ```
 
-1.  git clone [https://github.com/seuusuario/pdf-extractor.gitcd pdf-extractor](https://github.com/Dantedevil10/quickFiller-PdfExtractor.git)
-    
-2.   `npm install` Certifique-se de que o package.json contenha ao menos: `{ "dependencies": { "exceljs": "^4.4.0", "pdf-parse": "^1.1.1" }}`
-    
-3.  **Coloque seus PDFs na pasta input/**
-    
-    *   Exemplo: input/maio.pdf
-        
-    *   Exemplo: input/cartao_maio.pdf
-        
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-### ▶️ Como Executar
+3. Inicie o programa e siga as instruções:
+   ```bash
+   node src/main.js
+   ```
+4. Selecione qual Opção desejar no terminal:
+   ```bash
+   Deseja Abrir um Pdf De Cartão ou Holerite ? 1 - Cartão 2 - Holerite
+   ```
+5. Selecione o arquivo:
+   ```bash
+   Qual o nome do arquivo? (Não coloque o .pdf, somente o nome)
+   ```
 
-No terminal, dentro da pasta do projeto:
+   > Todos os arquivos de planilha serão gerados em `/Output`
+   > Todos os Aquivos para geração de planilha deverão ser Colocados na pasta `/Input`
 
-`   node main.js   `
+---
 
-O programa exibirá um menu interativo:
 
-`   Deseja Abrir um Pdf De Cartão ou Holerite ?   1 - Cartão   2 - Holerite   `
+## 📡 Teste
 
-Depois, mostrará os arquivos encontrados na pasta input/, e pedirá o nome do arquivo (sem o .pdf).
+Na Pasta `/Input` existem 1 Arquivo `testeCartao.pdf` e `Exemplo-Holerite-01.pdf` que podem ser usados para gerar uma planilha final em `/Output`
 
-Exemplo:
 
-`   📄 Arquivos disponíveis na pasta /input:   - holerite_maio.pdf   - cartao_maio.pdf  Qual o nome do arquivo? (Não coloque o .pdf, somente o nome)  > holerite_maio   `
+- O backend emite eventos via WebSocket com o evento `localizacaoAtualizada`.
+- Frontend escuta o evento e atualiza dinamicamente a posição no mapa.
+- Outro evento importante: `Status Atualizado` (quando o status do entregador muda).
 
-### 📊 Saída Gerada
+---
 
-Após o processamento, o sistema criará automaticamente a planilha Excel correspondente em output/:
-
-### 🧠 Funcionamento Interno
-
-*   **main.js** → gerencia a execução, entrada do usuário e chamadas aos módulos.
-    
-*   **pdfUtils.js** → lê e converte o PDF em texto.
-    
-*   **cartaoPontoExtractor.js** → interpreta o texto e extrai os dados de ponto (mês, dia, entrada, saída, situação).
-    
-*   **holeriteExtractor.js** → extrai informações de holerite (mês, total de proventos, descontos e líquido).
-    
-*   **excelService.js** → insere os dados extraídos em uma planilha modelo (/models) e salva em /output.
-    
-
-### 🧩 Exemplo de Saída — Cartão de Ponto
-
-Mês/AnoDiaEntradaSaídaSituação05/20240109:0018:00Normal05/20240209:1518:05Descanso
-
-### ⚠️ Observações
-
-*   O projeto **tolera diferentes formatações de PDF**, mas o texto deve estar acessível (OCR ativo).
-    
-*   ⚠️ Nenhum bloco de holerite identificado. Verifique o layout ou OCR.⚠️ Nenhum 'Mês/Ano' encontrado. Verifique se o layout mudou.
-    
-
-### 🧰 Scripts úteis
-
-Para rodar mais rápido:
-
-`   npm start   `
-
-Adicione no package.json:
-
-`   "scripts": {    "start": "node main.js"  }   `
