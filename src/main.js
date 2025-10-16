@@ -24,7 +24,7 @@ async function main() {
       "Deseja Abrir um Pdf De Cartão ou Holerite ?\n 1 - Cartão\n 2 - Holerite\n"
     );
 
-    // 👉 Mostrar arquivos disponíveis
+    // Mostrar arquivos disponíveis
     const arquivos = await fs.readdir(path.join(__dirname,".." ,"input"));
     const pdfs = arquivos.filter((nome) => nome.endsWith(".pdf"));
 
