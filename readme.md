@@ -22,31 +22,20 @@ Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de po
 
 ## 🚀 Instalação
 
-1. **Verifique o `package.json`** (deve conter algo assim):
-
-   ```json
-   {
-     "dependencies": {
-       "exceljs": "^4.4.0",
-       "pdf-parse": "^2.3.11"
-     }
-   }
-   ```
-
-2. **Clone este repositório:**
+1. **Clone este repositório:**
 
    ```bash
    git clone https://github.com/Dantedevil10/quickFiller-PdfExtractor.git
    cd quickFiller-PdfExtractor
    ```
 
-3. **Instale as dependências:**
+2. **Instale as dependências:**
 
    ```bash
    npm install
    ```
 
-4. **Inicie o programa e siga as instruções:**
+3. **Inicie o programa e siga as instruções:**
 
    ```bash
    node src/main.js
