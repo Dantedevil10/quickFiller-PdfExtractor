@@ -123,6 +123,7 @@ Após o processamento, o sistema criará automaticamente a planilha corresponden
   ⚠️ Nenhum bloco de holerite identificado. Verifique o layout ou OCR.
   ⚠️ Nenhum 'Mês/Ano' encontrado. Verifique se o layout mudou.
   ```
+- Pdfs de imagens não são lidos ou processados como texto
 
 ---
 
