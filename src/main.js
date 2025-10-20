@@ -80,8 +80,7 @@ async function main() {
       // --- HOLERITE ---
       const textoHolerite = await pdfUtils.extractPdfText(caminhoArquivo);
       if (textoHolerite) {
-        const dadosHolerite =
-          HoleriteData.extractHoleriteData(textoHolerite);
+        const dadosHolerite = HoleriteData.extractHoleriteData(textoHolerite);
         if (dadosHolerite) {
           await Planilha.gerarPlanilha(
             "./models/Exemplo-Holerite-01.xlsx",

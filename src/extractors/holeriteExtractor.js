@@ -22,11 +22,13 @@ function extractHoleriteData(text) {
     });
   }
 
-  if (resultados.length === 0) {
+  if (resultados.length === 0 || !resultados) {
     console.warn("⚠️ Nenhum bloco de holerite identificado. Verifique o layout ou OCR.");
+    
+  }else{
+    return resultados;
   }
 
-  return resultados;
 }
 
 module.exports = { extractHoleriteData };

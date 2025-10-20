@@ -5,7 +5,7 @@
  * - "Mês/Ano" ou "Mes/Ano"
  * - Formatos de hora: 09:50 / 9h50 / 09.50 / 9h50 às 16h06
  * - Palavras com variações de OCR: Descanso / Desc. Sem. / Descanço
- */
+*/
 
 function extractCartaoPontoData(text) {
   const resultados = [];
@@ -18,7 +18,7 @@ function extractCartaoPontoData(text) {
     meses.push({ mesAno: matchMes[2], startIndex: matchMes.index });
   }
 
-  if (meses.length === 0) {
+  if (!meses || meses.length === 0) {
     console.warn("⚠️ Nenhum 'Mês/Ano' encontrado. Verifique se o layout mudou.");
   }
 
@@ -44,12 +44,17 @@ function extractCartaoPontoData(text) {
       });
     }
 
-    if (resultados.length === 0) {
+    if (resultados.length === 0 || !resultados) {
       console.warn(`⚠️ Nenhum registro encontrado para o mês ${atual.mesAno}.`);
     }
   }
-
-  return resultados;
+  
+  if (resultados.length === 0 || !resultados) {
+    console.warn(`⚠️ Nenhum registro encontrado Para cartao de ponto.`);
+  }else{
+    return resultados;
+  }
+  
 }
 
 module.exports = { extractCartaoPontoData };
