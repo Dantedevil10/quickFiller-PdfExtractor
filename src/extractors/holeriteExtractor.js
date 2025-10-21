@@ -39,11 +39,10 @@ function extractHoleriteData(text) {
 
   if (blocos.length === 0) {
     console.warn("⚠️ Nenhum bloco de holerite identificado.");
-  }else{return blocos}
+  }else{
+    return blocos
+  }
 
-  //return blocos;
 }
-
-
 
 module.exports = { extractHoleriteData };
