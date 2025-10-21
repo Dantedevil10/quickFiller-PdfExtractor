@@ -7,30 +7,39 @@
  * - OCR que une números (ex: 1234,56 em vez de 1.234,56)
 */
 function extractHoleriteData(text) {
-  const regexBloco = /(M[eê]s\/Ano)[:\s]+(\d{2}\/\d{4})[\s\S]*?0020\s+Horas\s+Normais\s+\t?([\d.,]+)\s+([\d.,]+)[\s\S]*?0060\s+Desc\.\s+Semanal\s+Remunerado\s+([\d.,]+)\s+([\d.,]+)[\s\S]*?1000\s+Aux[ií]lio\s+Doen[cç]a\s+\t?([\d.,]+)\s+([\d.,]+)[\s\S]*?1510\s+Integra[cç][aã]o\s+M[eé]dias\s+D\.S\.R\.\s+([\d.,]+)\s+([\d.,]+)[\s\S]*?T\s*O\s*T\s*A\s*L[\s\S]*?([\d.,]+)\s+([\d.,]+)[\s\S]*?L[ií]quido\s+a\s+Receber[\s\S]*?([\d.,]+)/gi;
-
+  const blocos = text.split(/M[eê]s\/Ano[:\s]+(\d{2}\/\d{4})/gi);
   const resultados = [];
-  let m;
 
-  while ((m = regexBloco.exec(text))) {
-    //console.log(m)
+  for (let i = 1; i < blocos.length; i += 2) {
+    const mesAno = blocos[i];
+    const conteudo = blocos[i + 1];
+
+    const regexLinha = /^([A-Z\/\d]{3,})\s+(.+?)\s+((\d{1,3},\d{2})\s+)?(\d{1,3},\d{2})$/gm;
+
+    const linhas = [];
+    let m;
+    while ((m = regexLinha.exec(conteudo))) {
+      linhas.push({
+        codigo: m[1],
+        descricao: m[2].trim(),
+        qtde: m[4] ? m[4].trim() : "",
+        valor: m[5].trim(),
+      });
+    }
+
     resultados.push({
-      mesAno: m[2],
-      horasNormaisQtde: m[3],
-      horasNormaisValor: m[4],
-      semanalRemuneradoQtde: m[5],
-      semanalRemuneradoValor: m[6],
-      auxilioDoenca:m[7]
+      mesAno,
+      itens: linhas,
     });
   }
 
   if (resultados.length === 0 || !resultados) {
-    console.warn("⚠️ Nenhum bloco de holerite identificado. Verifique o layout ou OCR.");
-    
+    console.warn("⚠️ Nenhum bloco de holerite identificado.");
   }else{
     return resultados;
   }
 
 }
+
 
 module.exports = { extractHoleriteData };

@@ -16,15 +16,22 @@ async function gerarPlanilha(modelPath, outputPath,  dados, tipo) {
       row.commit();
     });
   } else if (tipo === "Holerite" && dados) {
-    dados.forEach((h, index) => {
-      const row = sheet.getRow(startRow + index);
-      row.values = [
-        h.mesAno, h.horasNormaisQtde, h.horasNormaisValor, 
-        h.semanalRemuneradoQtde,h.semanalRemuneradoValor,
-        h.auxilioDoenca
-      ];
-      row.commit();
+    let rowIndex = startRow;
+
+    dados.forEach((holerite) => {
+      holerite.itens.forEach((item) => {
+        const row = sheet.getRow(rowIndex++);
+        row.values = [
+          holerite.mesAno,
+          item.codigo,
+          item.descricao,
+          item.qtde,
+          item.valor
+        ];
+        row.commit();
+      });
     });
+    
   } else {
     console.log("Erro ao obter dados em: Gerar Planilhas");
     return;
