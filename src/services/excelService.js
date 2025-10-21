@@ -18,7 +18,11 @@ async function gerarPlanilha(modelPath, outputPath,  dados, tipo) {
   } else if (tipo === "Holerite" && dados) {
     dados.forEach((h, index) => {
       const row = sheet.getRow(startRow + index);
-      row.values = [h.mesAno, h.totalProventos, h.totalDescontos, h.liquido];
+      row.values = [
+        h.mesAno, h.horasNormaisQtde, h.horasNormaisValor, 
+        h.semanalRemuneradoQtde,h.semanalRemuneradoValor,
+        h.auxilioDoenca
+      ];
       row.commit();
     });
   } else {
