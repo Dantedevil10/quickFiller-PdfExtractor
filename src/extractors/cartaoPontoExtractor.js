@@ -21,6 +21,7 @@ function extractCartaoPontoData(text) {
   if (!meses || meses.length === 0) {
     console.warn("⚠️ Nenhum 'Mês/Ano' encontrado. Verifique se o layout mudou.");
   }
+  ////////
 
   // Processa cada bloco de mês isoladamente
   for (let i = 0; i < meses.length; i++) {
@@ -31,7 +32,8 @@ function extractCartaoPontoData(text) {
     // Regex tolerante:
     // - aceita 09:50 / 9h50 / 09.50 / 9:50 às 16:06
     // - aceita "Descanso", "Desc. Sem.", "N Feriado", "NFeriado"
-    const regexDia = /(\d{1,2})\s+\w{3}\s+(\d{1,2}[:h.]\d{2})\s*(?:[-aàs]\s*)(\d{1,2}[:h.]\d{2})[\s\S]*?(Desc\S*|N\s?Feriado|Sim|Não|S|N)/gi;
+    const regexDia = /(\d{1,2})\s+\w{3}\s+(\d{1,2}[:h.]\d{2})\s*[-aàs]\s*(\d{1,2}[:h.]\d{2})\s+(\d{1,2}[:h.]\d{2})\s*[-aàs]\s*(\d{1,2}[:h.]\d{2})[\s\S]*?(Desc\S*|N\s?Feriado|Sim|Não|S|N)/gi
+
 
     let m;
     while ((m = regexDia.exec(trecho))) {
@@ -39,7 +41,9 @@ function extractCartaoPontoData(text) {
         Data: `${m[1]}/${atual.Data}`,
         entrada: m[2],
         saida: m[3],
-        situacao: m[4].trim(),
+        intervalo:m[4],
+        saidaIntervalo:m[5],
+        situacao: m[6].trim(),
       });
     }
 
