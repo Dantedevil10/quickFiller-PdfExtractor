@@ -53,7 +53,7 @@ Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de po
 ## 🧭 Uso
 
 Obs: Há 2 pdfs na pasta **/Input** do diretorio principal
-**todos os pdfs para extração de dados devem estar dentro da pasta /Input e serão extraidas para a pasta /Output**
+- **todos os pdfs para extração de dados devem estar dentro da pasta /Input e serão extraidas para a pasta /Output**
 
 1. Escolha a opção desejada no terminal:
 
