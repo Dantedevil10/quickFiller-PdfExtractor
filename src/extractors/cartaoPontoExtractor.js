@@ -15,7 +15,7 @@ function extractCartaoPontoData(text) {
   const regexMes = /(M[eê]s\/Ano)[:\s]+(\d{2}\/\d{4})/gi;
   let matchMes;
   while ((matchMes = regexMes.exec(text))) {
-    meses.push({ mesAno: matchMes[2], startIndex: matchMes.index });
+    meses.push({ Data: matchMes[2], startIndex: matchMes.index });
   }
 
   if (!meses || meses.length === 0) {
@@ -36,8 +36,7 @@ function extractCartaoPontoData(text) {
     let m;
     while ((m = regexDia.exec(trecho))) {
       resultados.push({
-        mesAno: atual.mesAno,
-        dia: m[1],
+        Data: `${m[1]}/${atual.Data}`,
         entrada: m[2],
         saida: m[3],
         situacao: m[4].trim(),
@@ -45,7 +44,7 @@ function extractCartaoPontoData(text) {
     }
 
     if (resultados.length === 0 || !resultados) {
-      console.warn(`⚠️ Nenhum registro encontrado para o mês ${atual.mesAno}.`);
+      console.warn(`⚠️ Nenhum registro encontrado para o mês ${atual.Data}.`);
     }
   }
   

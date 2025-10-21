@@ -6,19 +6,25 @@ async function gerarPlanilha(modelPath, outputPath,  dados, tipo) {
 
   const sheet = workbook.worksheets[0]; // primeira aba
 
-  if (tipo === "CartaoPonto" && dados ) {
-    dados.forEach((d) => {
-      sheet.addRow([d.mesAno, d.dia, d.entrada, d.saida, d.situacao]);
-    });
-    //console.log(dados)
-  }else{console.log("Erro ao obter dados em : Gerar Planilhas")}
+  // Define a linha inicial para começar a preencher (por exemplo, 2 = logo abaixo do cabeçalho)
+  let startRow = 2;
 
-  if (tipo === "Holerite"  && dados) {
-    dados.forEach((h) => {
-      sheet.addRow([h.mesAno, h.totalProventos, h.totalDescontos, h.liquido]);
+  if (tipo === "CartaoPonto" && dados) {
+    dados.forEach((d, index) => {
+      const row = sheet.getRow(startRow + index);
+      row.values = [d.Data, d.entrada, d.saida, d.situacao];
+      row.commit();
     });
-    //console.log(dados)
-  }else{console.log("Erro ao obter dados em : Gerar Planilhas")}
+  } else if (tipo === "Holerite" && dados) {
+    dados.forEach((h, index) => {
+      const row = sheet.getRow(startRow + index);
+      row.values = [h.mesAno, h.totalProventos, h.totalDescontos, h.liquido];
+      row.commit();
+    });
+  } else {
+    console.log("Erro ao obter dados em: Gerar Planilhas");
+    return;
+  }
 
   await workbook.xlsx.writeFile(outputPath);
   console.log(`✅ Planilha de ${tipo === "CartaoPonto" ? "Cartão" : "Holerite"} 
