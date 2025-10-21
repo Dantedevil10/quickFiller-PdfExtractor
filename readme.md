@@ -26,6 +26,9 @@ Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de po
 
    ```bash
    git clone https://github.com/Dantedevil10/quickFiller-PdfExtractor.git
+   ```
+   em seguida entre no diretorio da pasta
+    ```bash
    cd quickFiller-PdfExtractor
    ```
 
@@ -39,6 +42,10 @@ Este projeto em **Node.js** extrai dados de **PDFs de holerites e cartões de po
 
    ```bash
    node src/main.js
+   ```
+   Ou se preferir
+   ```bash
+   npm start
    ```
 
 ---
