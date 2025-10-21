@@ -29,7 +29,6 @@ function extractCartaoPontoData(text) {
     const proximo = meses[i + 1];
     const trecho = text.slice(atual.startIndex, proximo ? proximo.startIndex : undefined);
 
-    // Regex tolerante:
     // - aceita 09:50 / 9h50 / 09.50 / 9:50 às 16:06
     // - aceita "Descanso", "Desc. Sem.", "N Feriado", "NFeriado"
     const regexDia = /(\d{1,2})\s+\w{3}\s+(\d{1,2}[:h.]\d{2})\s*[-aàs]\s*(\d{1,2}[:h.]\d{2})\s+(\d{1,2}[:h.]\d{2})\s*[-aàs]\s*(\d{1,2}[:h.]\d{2})[\s\S]*?(Desc\S*|N\s?Feriado|Sim|Não|S|N)/gi
