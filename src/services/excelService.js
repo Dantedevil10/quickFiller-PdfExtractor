@@ -12,7 +12,7 @@ async function gerarPlanilha(modelPath, outputPath,  dados, tipo) {
   if (tipo === "CartaoPonto" && dados) {
     dados.forEach((d, index) => {
       const row = sheet.getRow(startRow + index);
-      row.values = [d.Data, d.entrada, d.intervalo ,d.saidaIntervalo, d.saida, d.situacao];
+      row.values = [d.Data, d.entrada, d.intervalo ,d.saidaIntervalo, d.saida];
       row.commit();
     });
   } else if (tipo === "Holerite" && dados) {

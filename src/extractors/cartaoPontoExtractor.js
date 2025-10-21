@@ -42,7 +42,7 @@ function extractCartaoPontoData(text) {
         saida: m[3],
         intervalo:m[4],
         saidaIntervalo:m[5],
-        situacao: m[6].trim(),
+        //situacao: m[6].trim(),
       });
     }
 
